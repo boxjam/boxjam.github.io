@@ -1,9 +1,50 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
-          <title>My Personal Site</title>
+        <title>My Site</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/styles.css" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="scripts/script.js"></script>
     </head>
     <body>
-          <h1>Hi</h1>
+        <nav>
+            <ul>
+                <li><img src="images/me.png" alt="Me!" height="130" width="130"/></li>
+                <li><a onclick="showAbout()" href="#">About</a></li>
+                <li><a onclick="showWork()" href="#">Work</a></li>
+                <li><a onclick="showContact()" href="#">Contact</a></li>
+                <li><a href="colours.html">Colours</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div id="intro">
+                <h1>Hi</h1>
+                <p>
+                    How are you?</br>
+                </p>
+            </div>
+            <div id="about">
+                <h2>About</h2>
+                <p>
+                    All about me.
+                </p>
+            </div>
+            <div id="work" hidden="hidden">
+                <h2>Work</h2>
+                <p>
+                    What I do.
+                </p>
+            </div>
+            <div id="contact" hidden="hidden">
+                <h2>Contact</h2>
+                <p>
+                    Talk to me.
+                </p>
+            </div>
+        </div>
     </body>
 </html>
