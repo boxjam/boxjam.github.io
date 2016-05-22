@@ -1,41 +1,44 @@
 $(document).ready(function () {
-    //functions need consolidating
-    var startRed = Math.floor(Math.random() * 256);
-    var startGreen = Math.floor(Math.random() * 256);
-    var startBlue = Math.floor(Math.random() * 256);
-    var colour = '#' + startRed.toString(16) + startGreen.toString(16) + startBlue.toString(16);
+    //functions need refactoring
+    var red = randomColour();
+    var green = randomColour();
+    var blue = randomColour();
+    var colour = '#' + red.toString(16) + green.toString(16) + blue.toString(16);
     $("body").css("background-color", colour)
     setInterval(
         function () {
-            startRed += Math.floor((Math.random() * 5) - 2)
-            if (startRed < 0)
-            {
-                startRed = -startRed;
-            }
-            var startRedHex = startRed.toString(16);
-            if (startRedHex.length === 1)
-            {
-                startRedHex = '0' + startRedHex;
-            }
-            startGreen += Math.floor((Math.random() * 5) - 2)
-            if (startGreen < 0) {
-                startGreen = -startGreen;
-            }
-            var startGreenHex = startGreen.toString(16);
-            if (startGreenHex.length === 1) {
-                startGreenHex = '0' + startGreenHex;
-            }
-            startBlue += Math.floor((Math.random() * 5) - 2)
-            if (startBlue < 0) {
-                startBlue = -startBlue;
-            }
-            var startBlueHex = startBlue.toString(16);
-            if (startBlueHex.length === 1) {
-                startBlueHex = '0' + startBlueHex;
-            }
-            var hex = startRedHex + startGreenHex + startBlueHex;
+            red = alterColour(red);
+            var redHex = hexify(red);
+            green = alterColour(green);
+            var greenHex = hexify(green);
+            blue = alterColour(blue);
+            var blueHex = hexify(blue);
+            var hex = redHex + greenHex + blueHex;
             var colour = '#' + hex;
             $("body").css("background-color", colour);
         },
-    10);
+    15);
+
+    function randomColour() 
+    {
+        return Math.floor(Math.random() * 256);
+    }
+
+    function alterColour(startColour)
+    {
+        startColour += Math.floor((Math.random() * 5) - 2)
+        if (startColour < 0) {
+            startColour = -startColour;
+        }
+        return startColour;
+    }
+
+    function hexify(colour)
+    {
+        var colourHex = colour.toString(16);
+        if (colourHex.length === 1) {
+            colourHex = '0' + colourHex;
+        }
+        return colourHex;
+    }
 });
