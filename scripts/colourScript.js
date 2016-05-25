@@ -1,23 +1,48 @@
 $(document).ready(function () {
-    //functions need refactoring
-    var red = randomColour();
-    var green = randomColour();
-    var blue = randomColour();
-    var colour = '#' + red.toString(16) + green.toString(16) + blue.toString(16);
-    $("body").css("background-color", colour)
-    setInterval(
-        function () {
-            red = alterColour(red);
-            var redHex = hexify(red);
-            green = alterColour(green);
-            var greenHex = hexify(green);
-            blue = alterColour(blue);
-            var blueHex = hexify(blue);
-            var hex = redHex + greenHex + blueHex;
-            var colour = '#' + hex;
+            var red = randomColour();
+            var green = randomColour();
+            var blue = randomColour();
+
+            var colour = '#' + red.toString(16) + green.toString(16) + blue.toString(16);
             $("body").css("background-color", colour);
-        },
-    15);
+            $("div").css("background-color", colour);
+
+            var divTotal = Math.floor(Math.random() * 100);
+            for (var a = 0; a <= divTotal; a++) {
+                var i = a;
+                var divsize = ((Math.random() * 100)).toFixed();
+                $newdiv = $('<div/>').css({
+                    'width': divsize + 'px',
+                    'height': divsize + 'px',
+                    'background-color': colour
+            });
+
+            var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+            var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+            $newdiv.attr("id", i);
+            $newdiv.css({
+                'position': 'fixed',
+                'left': posx + 'px',
+                'top': posy + 'px'
+                }).appendTo('body');
+            }
+
+            $('div').each(function() {
+                var $div = $(this);
+
+            })
+
+        setInterval(function () {
+                red = alterColour(red);
+                var redHex = hexify(red);
+                green = alterColour(green);
+                var greenHex = hexify(green);
+                blue = alterColour(blue);
+                var blueHex = hexify(blue);
+                var hex = redHex + greenHex + blueHex;
+                var colour = '#' + hex;
+                $("body").css("background-color", colour);
+        }, 15);
 
     function randomColour() 
     {
