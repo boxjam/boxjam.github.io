@@ -14,7 +14,8 @@ $(document).ready(function () {
                 $newdiv = $('<div/>').css({
                     'width': divsize + 'px',
                     'height': divsize + 'px',
-                    'background-color': colour
+                    'background-color': colour,
+                    'border-radius' : 50
             });
 
             var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
