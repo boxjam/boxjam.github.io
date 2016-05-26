@@ -42,7 +42,7 @@ $(document).ready(function () {
                 var hex = redHex + greenHex + blueHex;
                 var colour = '#' + hex;
                 $("body").css("background-color", colour);
-        }, 15);
+        }, 20);
 
     function randomColour() 
     {
