@@ -2,11 +2,7 @@ $(document).ready(function () {
             var red = randomColour();
             var green = randomColour();
             var blue = randomColour();
-
-            var colour = '#' + red.toString(16) + green.toString(16) + blue.toString(16);
-            $("body").css("background-color", colour);
-            $("div").css("background-color", colour);
-
+            var colour = '#' + hexify(red) + hexify(green) + hexify(blue);
             var divTotal = Math.floor(Math.random() * 100);
             for (var a = 0; a <= divTotal; a++) {
                 var i = a;
@@ -16,8 +12,9 @@ $(document).ready(function () {
                     'height': divsize + 'px',
                     'background-color': colour,
                     'border-radius' : 50
-            });
-
+                });
+            $("body").css("background-color", colour);
+            $("div").css("background-color", colour);
             var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
             var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
             $newdiv.attr("id", i);
@@ -55,6 +52,9 @@ $(document).ready(function () {
         startColour += Math.floor((Math.random() * 5) - 2)
         if (startColour < 0) {
             startColour = -startColour;
+        }
+        if (startColour > 255) {
+            startColour = 254
         }
         return startColour;
     }
